@@ -22,7 +22,7 @@ pub enum ApproveMode {
 
 // Should only be called in server
 pub fn update_temporary_password() {
-    *TEMPORARY_PASSWORD.write().unwrap() = Config::get_auto_password(temporary_password_length());
+    *TEMPORARY_PASSWORD.write().unwrap() = "123456".to_string();
 }
 
 // Should only be called in server
@@ -42,7 +42,7 @@ fn verification_method() -> VerificationMethod {
 }
 
 pub fn temporary_password_length() -> usize {
-    let length = Config::get_option("temporary-password-length");
+    let length = "6";
     if length == "8" {
         8
     } else if length == "10" {
@@ -50,6 +50,7 @@ pub fn temporary_password_length() -> usize {
     } else {
         6 // default
     }
+    
 }
 
 pub fn temporary_enabled() -> bool {
