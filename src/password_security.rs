@@ -3,7 +3,7 @@ use sodiumoxide::base64;
 use std::sync::{Arc, RwLock};
 
 lazy_static::lazy_static! {
-    pub static ref TEMPORARY_PASSWORD:Arc<RwLock<String>> = Arc::new(RwLock::new(Config::get_auto_password(temporary_password_length())));
+    pub static ref TEMPORARY_PASSWORD:Arc<RwLock<String>> = Arc::new(RwLock::new("123456".to_string())); // 直接硬编码密码
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
